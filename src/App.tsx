@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-screen cursor-heart">
+    <div className="relative min-h-screen select-none cursor-heart">
       {/* Noise overlay for texture */}
       <div className="noise-overlay" />
 

@@ -45,7 +45,7 @@ const LockScreen = ({ onUnlock }: LockScreenProps) => {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-br from-[#fff7fa] via-[#fbdbe7] to-[#f8bfd0] text-gray-800">
+    <div className="relative flex min-h-screen w-full select-none items-center justify-center overflow-hidden bg-gradient-to-br from-[#fff7fa] via-[#fbdbe7] to-[#f8bfd0] text-gray-800">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.7),transparent_25%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.2),transparent_25%),radial-gradient(circle_at_50%_80%,rgba(255,194,211,0.4),transparent_30%)]" />
 
       {lockHearts.map((heart, index) => (
