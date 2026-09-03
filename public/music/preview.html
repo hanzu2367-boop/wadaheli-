@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Preview</title>
+    <style>
+      :root {
+        --bg: #1a1a2e;
+        --panel: #16213e;
+        --panel-2: #1d2747;
+        --pink: #f8a0b5;
+        --pink-soft: #ffd9e3;
+        --text: #f5f7ff;
+        --muted: #a5a9c2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        max-width: 680px;
+        margin: 40px auto;
+        padding: 0 20px 40px;
+        background: linear-gradient(135deg, #1a1a2e 0%, #0f172a 100%);
+        color: var(--text);
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--pink);
+        margin-bottom: 28px;
+        letter-spacing: 0.04em;
+      }
+
+      .track {
+        background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+        border: 1px solid rgba(248, 160, 181, 0.18);
+        border-radius: 14px;
+        padding: 16px 18px;
+        margin-bottom: 14px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+      }
+
+      .track h3 {
+        margin: 0 0 6px;
+        color: var(--pink-soft);
+        font-size: 1.1rem;
+      }
+
+      .filename {
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 10px;
+        letter-spacing: 0.02em;
+      }
+
+      audio {
+        width: 100%;
+        outline: none;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎵 Music Preview</h1>
+
+    <div class="track">
+      <h3>Track 1</h3>
+      <div class="filename">vxmay9mmss.mp3 (3.1 MB)</div>
+      <audio controls preload="metadata" src="/music/vxmay9mmss.mp3"></audio>
+    </div>
+
+    <div class="track">
+      <h3>Track 2</h3>
+      <div class="filename">9bwja82ok9.mp3 (4.4 MB)</div>
+      <audio controls preload="metadata" src="/music/9bwja82ok9.mp3"></audio>
+    </div>
+
+    <div class="track">
+      <h3>Track 3</h3>
+      <div class="filename">u694ndeeaa.mp3 (8.3 MB)</div>
+      <audio controls preload="metadata" src="/music/u694ndeeaa.mp3"></audio>
+    </div>
+
+    <div class="track">
+      <h3>Track 4</h3>
+      <div class="filename">f8ur5x6a7p.mp3 (4.4 MB)</div>
+      <audio controls preload="metadata" src="/music/f8ur5x6a7p.mp3"></audio>
+    </div>
+
+    <div class="track">
+      <h3>Track 5</h3>
+      <div class="filename">ggdevzjxxs.mp3 (4.6 MB)</div>
+      <audio controls preload="metadata" src="/music/ggdevzjxxs.mp3"></audio>
+    </div>
+
+    <div class="track">
+      <h3>Track 6</h3>
+      <div class="filename">fge4x9lqb3.mp3 (3.3 MB)</div>
+      <audio controls preload="metadata" src="/music/fge4x9lqb3.mp3"></audio>
+    </div>
+  </body>
+</html>
