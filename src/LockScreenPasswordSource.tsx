@@ -6,7 +6,7 @@ interface LockScreenProps {
   onUnlock: () => void;
 }
 
-const PASSCODE = '082726';
+const PASSCODE = '102726';
 
 const lockHearts = [
   { left: '8%', top: '14%', size: 'text-6xl', color: 'text-pink-300', delay: 0, drift: -18 },
@@ -114,7 +114,7 @@ const LockScreen = ({ onUnlock }: LockScreenProps) => {
           </div>
 
           <div className="mt-8 text-xs font-medium text-pink-400">
-            Clue: kiss mo muna ako
+            Clue: kiss mo muna ako -Hanzu
           </div>
         </div>
 

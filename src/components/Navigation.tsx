@@ -32,13 +32,13 @@ export default function Navigation() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+          className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="glass-card-strong px-3 py-2 flex items-center gap-1 sm:gap-2">
+          <div className="glass-card-strong px-3 py-2 flex items-center gap-1 sm:gap-2 pointer-events-auto">
             {navItems.map((item) => (
               <button
                 key={item.id}

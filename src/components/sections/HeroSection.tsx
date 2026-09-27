@@ -69,7 +69,7 @@ export default function HeroSection() {
             transition={{ delay: 0.5, duration: 1 }}
           >
             <div className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-transparent via-petal-300 to-transparent" />
-            <span className="script-text text-xl sm:text-2xl text-petal-400 whitespace-nowrap">Cassandra and me Jerome ❤️</span>
+            <span className="script-text text-xl sm:text-2xl text-petal-400 whitespace-nowrap">Mei and Hanzu ❤️</span>
             <div className="h-px flex-1 max-w-[120px] bg-gradient-to-l from-transparent via-petal-300 to-transparent" />
           </motion.div>
 

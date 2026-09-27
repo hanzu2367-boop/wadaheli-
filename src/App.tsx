@@ -37,7 +37,7 @@ function App() {
       <Navigation />
 
       {/* Main content */}
-      <main className="relative z-10">
+      <main className="relative z-10 pb-28">
         <HeroSection />
 
         {/* Section divider */}
@@ -79,13 +79,15 @@ function App() {
 
         <MusicSection />
 
-        <div className="relative h-16">
+        <div className="relative h-24">
           <div className="absolute left-1/2 -translate-x-1/2">
             <svg width="40" height="20" viewBox="0 0 40 20">
               <path d="M15 5 C15 2, 18 0, 20 3 C22 0, 25 2, 25 5 C25 10, 20 13, 20 13 C20 13, 15 10, 15 5Z" fill="#b9a3d8" opacity="0.3" />
             </svg>
           </div>
         </div>
+
+        <div className="h-8" />
 
         <SurpriseSection />
 

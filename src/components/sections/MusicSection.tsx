@@ -2,13 +2,15 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from '../../hooks/useInView';
 
+const buildTrackUrl = (fileName: string) => `${import.meta.env.BASE_URL}music/${encodeURIComponent(fileName)}`;
+
 const playlist = [
-  { id: 1, title: 'Spring Snow', artist: '10 cm', duration: '4:12', emoji: '🎶', url: '/music/[선재 업고 튀어 (Lovely Runner) OST Part 8] 10CM - 봄눈 (Spring Snow) MV.mp3' },
-  { id: 2, title: 'TAGU-TAGUAN', artist: 'Moira Dela Torre', duration: '3:39', emoji: '💞', url: '/music/TAGU-TAGUAN - Moira Dela Torre (Halfway Point)  Lyric Video.mp3' },
-  { id: 3, title: '24/7 365', artist: 'Elijah Woods', duration: '3:10', emoji: '⭐', url: '/music/elijah woods - 247, 365 (official lyric video).mp3' },
-  { id: 4, title: 'Star', artist: 'Colde', duration: '3:38', emoji: '💫', url: '/music/Colde (콜드) - Star (Lyrics).mp3' },
-  { id: 5, title: 'Thinking Out Loud', artist: 'Ed Sheeran', duration: '4:41', emoji: '✨', url: '/music/Ed Sheeran - Thinking Out Loud (Official Music Video).mp3' },
-  { id: 6, title: 'Best Part', artist: 'Daniel Caesar & H.E.R.', duration: '3:17', emoji: '💖', url: '/music/H.E.R. - Best Part (Lyrics) Ft. Daniel Caesar.mp3' },
+  { id: 1, title: 'Spring Snow', artist: '10 cm', duration: '4:12', emoji: '🎶', url: buildTrackUrl('[선재 업고 튀어 (Lovely Runner) OST Part 8] 10CM - 봄눈 (Spring Snow) MV.mp3') },
+  { id: 2, title: 'TAGU-TAGUAN', artist: 'Moira Dela Torre', duration: '3:39', emoji: '💞', url: buildTrackUrl('TAGU-TAGUAN - Moira Dela Torre (Halfway Point)  Lyric Video.mp3') },
+  { id: 3, title: '24/7 365', artist: 'Elijah Woods', duration: '3:10', emoji: '⭐', url: buildTrackUrl('elijah woods - 247, 365 (official lyric video).mp3') },
+  { id: 4, title: 'Star', artist: 'Colde', duration: '3:38', emoji: '💫', url: buildTrackUrl('Colde (콜드) - Star (Lyrics).mp3') },
+  { id: 5, title: 'Thinking Out Loud', artist: 'Ed Sheeran', duration: '4:41', emoji: '✨', url: buildTrackUrl('Ed Sheeran - Thinking Out Loud (Official Music Video).mp3') },
+  { id: 6, title: 'Best Part', artist: 'Daniel Caesar & H.E.R.', duration: '3:17', emoji: '💖', url: buildTrackUrl('H.E.R. - Best Part (Lyrics) Ft. Daniel Caesar.mp3') },
 ];
 
 function formatTime(seconds: number): string {
@@ -33,11 +35,16 @@ export default function MusicSection() {
     if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
-    } else {
-      audio.play().catch(() => {});
-      setIsPlaying(true);
+      return;
     }
-  }, [isPlaying]);
+
+    if (!audio.src || audio.currentSrc === window.location.href) {
+      audio.src = playlist[currentTrack].url;
+      audio.load();
+    }
+
+    audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+  }, [currentTrack, isPlaying]);
 
   const selectTrack = useCallback((index: number) => {
     const audio = audioRef.current;
@@ -105,13 +112,14 @@ export default function MusicSection() {
   // Initialize first track src on mount
   useEffect(() => {
     const audio = audioRef.current;
-    if (audio && !audio.src) {
+    if (audio) {
       audio.src = playlist[0].url;
+      audio.load();
     }
   }, []);
 
   return (
-    <section className="relative py-20 sm:py-32 px-4 overflow-hidden" id="music">
+    <section className="relative py-28 sm:py-40 px-4 overflow-hidden" id="music">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lavender-200 to-transparent" />
 
       {/* Hidden audio element */}

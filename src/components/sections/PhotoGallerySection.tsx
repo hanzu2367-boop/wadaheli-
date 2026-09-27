@@ -2,9 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from '../../hooks/useInView';
 
-const herPhoto = new URL('../../assets/photo/content (1).png', import.meta.url).href;
-const mcdoPhoto = new URL('../../assets/photo/786969445_1924994741743249_5173460865842375802_n.jpg', import.meta.url).href;
-
 const makePlaceholder = (label: string, colors: [string, string]) => {
   const [start, end] = colors;
   const svg = `
@@ -18,8 +15,8 @@ const makePlaceholder = (label: string, colors: [string, string]) => {
       <rect width="1200" height="1200" fill="url(#g)"/>
       <circle cx="600" cy="480" r="210" fill="rgba(255,255,255,0.16)"/>
       <path d="M350 900c75-180 260-360 250-360s180 180 250 360" fill="rgba(255,255,255,0.12)"/>
-      <text x="600" y="640" text-anchor="middle" fill="white" font-size="90" font-family="Georgia, serif" font-weight="700">${label}</text>
-      <text x="600" y="720" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="44" font-family="Arial, sans-serif">Your photo here</text>
+      <text x="600" y="600" text-anchor="middle" fill="white" font-size="82" font-family="Georgia, serif" font-weight="700">${label}</text>
+      <text x="600" y="700" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="36" font-family="Arial, sans-serif">Soon to have a picture</text>
     </svg>
   `;
 
@@ -29,9 +26,9 @@ const makePlaceholder = (label: string, colors: [string, string]) => {
 const photos = [
   {
     id: 1,
-    title: 'Our First McDonald\'s Memory',
-    description: 'The beginning of our beautiful story together ❤️',
-    image: mcdoPhoto,
+    title: 'Soon to have a picture',
+    description: 'A new memory will be added here soon ❤️',
+    image: makePlaceholder('Soon', ['#f9d7e5', '#f5b7d8']),
     span: 'col-span-2 row-span-2',
   },
 ];
